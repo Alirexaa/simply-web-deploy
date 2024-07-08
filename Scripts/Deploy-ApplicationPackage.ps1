@@ -17,8 +17,8 @@ $contentPath = $source
 [System.Collections.ArrayList]$msdeployArguments = @(
     "-verb:sync",
     "-allowUntrusted",
-    "-source:contentPath='$contentPath'",
-    "-dest:auto,computerName='$computerNameArgument',username='$username',password='$password',AuthType='Basic'"
+    "-source:contentPath=$contentPath",
+    "-dest:auto,computerName=$computerNameArgument,username=$username,password=$password,AuthType=Basic"
 )
 
 if ($delete -NotMatch "true") {
@@ -26,11 +26,8 @@ if ($delete -NotMatch "true") {
 }
 
 if ($skipDirectory) {
-    $msdeployArguments.Add("-skip:Directory='$skipDirectory'")
+    $msdeployArguments.Add("-skip:Directory=$skipDirectory")
 }
 
-# Convert the arguments array to a single string with space-separated values
-$msdeployArgumentsString = $msdeployArguments -join " "
-
 # Execute the msdeploy command with the arguments
-& $msdeploy $msdeployArgumentsString
+& $msdeploy @msdeployArguments

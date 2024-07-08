@@ -18,14 +18,14 @@ $computerNameArgument = $computerName + '/MsDeploy.axd?site=' + $recycleApp
  
 $contentPath = $source
 
-$targetPath = $recycleApp + $destination
+#$targetPath = $recycleApp + $destination
 
 [System.Collections.ArrayList]$msdeployArguments = 
     "-verb:sync",
     "-allowUntrusted",
     "-source:contentPath=${contentPath}," +
     ("-dest:" + 
-        "contentPath=${targetPath}," +
+        "auto," +
         "computerName=${computerNameArgument}," + 
         "username=${username}," +
         "password=${password}," +

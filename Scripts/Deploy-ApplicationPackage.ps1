@@ -12,9 +12,11 @@ $skipDirectory = $args[7]
 
 $computerNameArgument = $computerName + '/MsDeploy.axd?site=' + $recycleApp
 
-$directory = Split-Path -Path (Get-Location) -Parent
-$baseName = (Get-Item $directory).BaseName
-$contentPath = Join-Path(Join-Path $directory $baseName) $source
+# $directory = Split-Path -Path (Get-Location) -Parent
+# $baseName = (Get-Item $directory).BaseName
+# $contentPath = Join-Path(Join-Path $directory $baseName) $source
+ 
+$contentPath = $source
 
 $targetPath = $recycleApp + $destination
 

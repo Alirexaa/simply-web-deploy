@@ -16,7 +16,8 @@ $contentPath = $source
     "-verb:sync",
     "-allowUntrusted",
     "-source:contentPath=$contentPath",
-    "-dest:iisApp=$recycleApp,computerName=$computerNameArgument,username=$username,password=$password,AuthType=Basic"
+    "-dest:auto,computerName=$computerNameArgument/MSDeploy.axd?site=$recycleApp,username=$username,password=$password,AuthType=Basic",
+    "-allowUntrusted"
 )
 
 if ($delete -ne "true") {

@@ -15,8 +15,8 @@ $contentPath = $source
 [System.Collections.ArrayList]$msdeployArguments = @(
     "-verb:sync",
     "-allowUntrusted",
-    "-source:iisApp=$contentPath",
-    "-dest:auto,computerName=$computerNameArgument/MSDeploy.axd?site=$recycleApp,username=$username,password=$password,AuthType=Basic",
+    "-source:contentPath=$contentPath",
+    "-dest:contentPath=$recycleApp,computerName=$computerNameArgument/MSDeploy.axd,username=$username,password=$password,AuthType=Basic",
     "-allowUntrusted"
 )
 
